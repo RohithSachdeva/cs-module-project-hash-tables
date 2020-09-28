@@ -1,0 +1,23 @@
+Building a Hash Table 
+
+Second two days: 
+Application of them
+
+
+Linear search ... #O(n) over the length of the list 
+For item in array ... 
+     if item == "found" 
+     print("You find it")
+
+
+We need a magic function that will tell us for a given string, which index to look in
+
+
+["Lorem", "ipsum", etc...]
+    0       1       
+
+"amet" -> hash_f() -> 4
+"ipsum" -> hash_f() -> 1
+
+
+def 
