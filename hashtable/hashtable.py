@@ -7,6 +7,8 @@ class HashTableEntry:
         self.value = value
         self.next = None
 
+    def __repr__(self, key, value):
+        return f"{self.key} is {self.value}"
 
 # Hash table can't have fewer than this many slots
 MIN_CAPACITY = 8
@@ -21,7 +23,9 @@ class HashTable:
     """
 
     def __init__(self, capacity):
-        # Your code here
+        self.capacity = 8
+        self.table = [None] * self.capacity
+        
 
 
     def get_num_slots(self):
@@ -34,10 +38,11 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+        return len(self.capacity)
 
 
     def get_load_factor(self):
+        pass
         """
         Return the load factor for this hash table.
 
@@ -57,11 +62,24 @@ class HashTable:
 
 
     def djb2(self, key):
+        hash = 5381
+        for c in key: 
+            hash = (hash * 33) + ord(c)
+        return hash
+
         """
         DJB2 hash, 32-bit
 
         Implement this, and/or FNV-1.
+        def djb2(key):
+            hash = 5381
+            for c in key:
+                hash = (hash * 33) + ord(c)
+            return hash
         """
+        
+
+
         # Your code here
 
 
@@ -82,6 +100,8 @@ class HashTable:
         Implement this.
         """
         # Your code here
+        index = self.hash_index(key)
+        self.table[index] = HashTableEntry(key, value)
 
 
     def delete(self, key):

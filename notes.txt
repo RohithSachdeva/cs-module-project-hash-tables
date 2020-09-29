@@ -20,4 +20,24 @@ We need a magic function that will tell us for a given string, which index to lo
 "ipsum" -> hash_f() -> 1
 
 
-def 
+Assume we don't have any duplicates .. so don't worry about collisions?  
+
+How can I take a value and fit it into the pre defined index i made... Table * 8
+
+ So if you take the modulo of something... the remainder has to be less than what you divided by
+
+ In this situation, we can take the modulo ... that will fit into our pre defined index
+
+ we want 0-7 ... we can modulo by 8
+
+The goal of hashing.. is order 1  O(1)
+
+The put function is:
+O(n) over the length of the key 
+O(1) over the number of items in the table 
+
+You can trade off memory for speed 
+
+XOR ===== ^
+
+
