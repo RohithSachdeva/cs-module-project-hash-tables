@@ -1,0 +1,83 @@
+Building a Hash Table 
+
+Second two days: 
+Application of them
+
+
+Linear search ... #O(n) over the length of the list 
+For item in array ... 
+     if item == "found" 
+     print("You find it")
+
+
+We need a magic function that will tell us for a given string, which index to look in
+
+
+["Lorem", "ipsum", etc...]
+    0       1       
+
+"amet" -> hash_f() -> 4
+"ipsum" -> hash_f() -> 1
+
+
+Assume we don't have any duplicates .. so don't worry about collisions?  
+
+How can I take a value and fit it into the pre defined index i made... Table * 8
+
+ So if you take the modulo of something... the remainder has to be less than what you divided by
+
+ In this situation, we can take the modulo ... that will fit into our pre defined index
+
+ we want 0-7 ... we can modulo by 8
+
+The goal of hashing.. is order 1  O(1)
+
+The put function is:
+O(n) over the length of the key 
+O(1) over the number of items in the table 
+
+You can trade off memory for speed 
+
+XOR ===== ^
+
+
+Day 2: 
+
+Hashing functions as a way to spread these strings across a large space
+
+Handling collisions
+
+Slot
+Index Chain (linked list)
+----- -------------------------------
+ 0    -> HashEntry("qux",10) -> None
+ 1    -> HashEntry("plugh",20) -> HashEntry("foo",1) -> None
+ 2    -> HashEntry("xyzzy",50) -> HashEntry("baz",999) -> HashEntry("bar",30) -> None
+ 3    -> None
+put("foo", 12)   # hashes to 1
+put("bar", 30)   # hashes to 2
+put("baz", 999 ) # hashes to 2--collision with "bar"!
+put("qux", 10)   # hashes to 0
+put("plugh", 20) # hashes to 1 (collision!)
+put("xyzzy", 50) # hashes to 2 (collision!)
+get("bar")       # hashes to 2
+GET(key):
+    get the index for the key
+    search the linked list at that index for the key
+    if found, return the value
+    else return None
+PUT(key):
+    get the index for the key
+    search the linked list at the index for the key
+    if the key is found, overwrite the value stored there
+    else insert the key and value at the head of the list at that index
+DELETE(key):
+    get the index for the key
+    search the linked list for the key at that index
+    if found, delete it, return it
+    else return None
+
+
+
+
+

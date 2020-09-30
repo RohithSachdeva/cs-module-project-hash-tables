@@ -1,4 +1,4 @@
-class HashTableEntry:
+ class HashTableEntry:
     """
     Linked List hash table key/value pair
     """
@@ -7,6 +7,8 @@ class HashTableEntry:
         self.value = value
         self.next = None
 
+    def __repr__(self, key, value):
+        return f"{self.key} is {self.value}"
 
 # Hash table can't have fewer than this many slots
 MIN_CAPACITY = 8
@@ -21,7 +23,9 @@ class HashTable:
     """
 
     def __init__(self, capacity):
-        # Your code here
+        self.capacity = capacity
+        self.table = [None] * self.capacity
+        self.count = 0
 
 
     def get_num_slots(self):
@@ -34,7 +38,7 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+        return len(self.table)
 
 
     def get_load_factor(self):
@@ -44,6 +48,14 @@ class HashTable:
         Implement this.
         """
         # Your code here
+        sum = 0
+        for index in range(len(self.table)):
+            if self.table[index] is not None:
+                pass
+        load_factor = sum/len(self.table)
+        return load_factor        
+
+
 
 
     def fnv1(self, key):
@@ -57,11 +69,24 @@ class HashTable:
 
 
     def djb2(self, key):
+        hash = 5381
+        for c in key: 
+            hash = (hash * 33) + ord(c)
+        return hash
+
         """
         DJB2 hash, 32-bit
 
         Implement this, and/or FNV-1.
+        def djb2(key):
+            hash = 5381
+            for c in key:
+                hash = (hash * 33) + ord(c)
+            return hash
         """
+        
+
+
         # Your code here
 
 
@@ -82,7 +107,10 @@ class HashTable:
         Implement this.
         """
         # Your code here
-
+        index = self.hash_index(key)
+        index_data = self.table[index]
+        self.table[index] = HashTableEntry(key, value)
+        self.table[index].next = index_data
 
     def delete(self, key):
         """
@@ -93,7 +121,8 @@ class HashTable:
         Implement this.
         """
         # Your code here
-
+        index = self.hash_index(key)
+        if 
 
     def get(self, key):
         """
@@ -114,6 +143,9 @@ class HashTable:
         Implement this.
         """
         # Your code here
+        if new_capacity < 8:
+            return
+        old_table 
 
 
 
