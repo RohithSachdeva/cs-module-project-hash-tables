@@ -1,0 +1,27 @@
+O(1) lookup
+
+Python dict type is implemented with a hash table
+
+Problem we want to solve:
+a = [...]
+
+is a number in the list?
+
+naive O(n) search:
+for n in a:
+    if n == 9:
+    return True..
+
+return False
+
+Build a hash table to make this faster.
+
+What class of problems
+
+What if we could magically just know what slot 9 would be in?  
+Hashing function does this
+
+index = magic_index_finder(9) 0(1)
+    if a[index] == 9:
+        return True
+
