@@ -1,5 +1,4 @@
 import unittest
-
 from expensive_seq import expensive_seq
 
 

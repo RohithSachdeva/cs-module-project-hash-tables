@@ -1,5 +1,13 @@
+
 def no_dups(s):
-    # Your code here
+    cache = {}
+    s = s.split()
+    for i in s:
+        cache[i] += 1
+    return str(cache)
+    
+     
+    
 
 
 
