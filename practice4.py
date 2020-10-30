@@ -1,4 +1,5 @@
-def no_dups(s):
+"""
+#def no_dups(s):
     cache = {}
     s = s.split()
     for i in s:
@@ -10,3 +11,13 @@ def no_dups(s):
 
 print(no_dups("hello hello hello"))
 
+"""
+
+xxx = {}
+words = []
+
+xxx[23] = []
+xxx[23].append("Rodizios")
+print(xxx[23])
+
+print(xxx)

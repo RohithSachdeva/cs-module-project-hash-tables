@@ -22,3 +22,4 @@ Convert values to strings and join method?
 https://note.nkmk.me/en/python-string-concat/#:~:text=The%20string%20method%20join(),strings%20into%20a%20single%20string.&text=Call%20join()%20method%20from,is%20a%20comma%2Ddelimited%20string.
 
 Think I can just convert to string, concatenate and omit the random : and things... janky solution
+

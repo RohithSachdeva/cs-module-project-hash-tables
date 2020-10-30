@@ -6,8 +6,8 @@ def word_count(s):
     y = re.sub(r'[^a-zA-Z \'\n\t\r]', '', s).lower()
     x = y.split()
     wordCount = {}
-    for i in x:
-        if i not in wordCount:
+    for i in x: # O(n)
+        if i not in wordCount: #O(1)?  But its nested within another operation
             wordCount[i] = 1
         else:
             wordCount[i] += 1
