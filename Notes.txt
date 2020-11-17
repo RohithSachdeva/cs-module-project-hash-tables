@@ -1,0 +1,205 @@
+O(1) lookup
+
+Python dict type is implemented with a hash table
+
+Problem we want to solve:
+a = [...]
+
+is a number in the list?
+
+naive O(n) search:
+for n in a:
+    if n == 9:
+    return True..
+
+return False
+
+Build a hash table to make this faster.
+
+What class of problems
+
+What if we could magically just know what slot 9 would be in?  
+Hashing function does this
+
+index = magic_index_finder(9) 0(1)
+    if a[index] == 9:
+        return True
+
+Wednesday Discussion:
+    Use of dictionaries
+
+Hash tables-
+Ability to look up values by key in 0(1) time
+
+Ability to save values 
+
+linear search demo
+
+a = [7, 2,9,5,0,1,8,10,17,15]
+
+def linear_search(l, v):
+    for e in l:
+        if e == v:
+            return True
+    return false
+
+print(a, 5) => true
+
+b = {}
+    for e in a: 
+        b[e] = True
+
+def hash_search(h,v) 
+    if v in h: 
+        return true
+    return False
+
+
+
+
+
+
+
+
+fib(0): 0
+fib(1): 1
+fib(n): fib(n-1) + fib(n-2)
+
+#memoization, top-down dynamic programming
+#If you have a function with multiple arguments... 
+    def foo(a,b,c):
+        if (a,b,c) not in cache:
+            cache[(a,b,c)] = foo(...)
+
+cache = {}
+
+def fib(n):
+    if n == 0
+        return 0
+    if n == 1:
+        return 1
+    return fib(n-1) + fib(n-2)
+
+    if n not in cache:
+        cache[n] = fib(n-1) + fib(n-2)
+    return cache[n]
+
+for i in range(100):
+    print(fib(i))
+
+
+
+Next example: Number of letters in a string?
+-Given a certain letter, determine how many times it appears
+
+s = "Hello, world!  This is a test of my fantastic letter counter."
+
+Count number of occurences of each letter
+    -Hash tables are great for this!
+    -Key and value in hash table.. Which do i use for what?
+    -The key is what I already know... The value is what I want to look up fast... 
+
+
+ht = {}
+#Key is the letter
+#value is the count of that letter
+
+for letter in s:
+    if letter not in ht:
+        ht[letter] = 0
+
+    ht[letter] += 1
+
+print(ht)
+
+def get_letter_count(s, letter):
+    count = 0
+    for c in s:
+        if c == letter:
+            count += 1
+    return count
+
+print(get_letter_count(s, 'e'))
+
+
+
+
+Sorting Problem
+
+d = {
+    "foo": 12,
+    "bar": 17,
+    "qux": 2
+}
+
+d.sort ... works on lists; not dictionaries
+
+items method for dictionaries
+
+for i in d.items():
+    print(i)
+
+Returns tuples ('foo', 12)
+
+items = list(d.items())  -> [('foo', 12), ...]
+
+items.sort() ... can sort tuples; sorts by key
+
+for k, v in items:
+    ... will copy past from his notes
+
+def foo(t):
+    return t[1]
+
+items.sort(key=foo)
+
+items.sort(key=lambda t: t[1])
+
+
+
+Caeser problem: Cryptography
+
+encode_table = {
+    'A': 'H',
+    'B': 'Z',
+    'C': 'Y',
+    'D': 'W',
+    'E': 'O',
+    'F': 'R',
+    'G': 'J',
+    'H': 'D',
+    'I': 'P',
+    'J': 'T',
+    'K': 'I',
+    'L': 'G',
+    'M': 'L',
+    'N': 'C',
+    'O': 'E',
+    'P': 'X',
+    'Q': 'K',
+    'R': 'U',
+    'S': 'N',
+    'T': 'F',
+    'U': 'A',
+    'V': 'M',
+    'W': 'B',
+    'X': 'Q',
+    'Y': 'V',
+    'Z': 'S'
+}
+
+HELLOWORLD -> What does this map to
+Mapping table
+
+DOGGEBEUG
+
+def encode(s):
+    r = ""
+    for letter in s:
+        encrypted_letter = encode_table[letter]
+
+        r += encrypted_letter
+    return r
+
+print(encode("HELLOWORLD"))
+

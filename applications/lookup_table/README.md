@@ -13,3 +13,7 @@ finish running in under a minute.
 
 There's no test file for this. It's counting to 50,000, so if it
 finishes before you give up, then you're golden.
+
+
+Takes x ^ y ... Factorial that... then set the factorial 
+I need to cache the value of V ... if V exists in the dictionary, I need to set 

@@ -1,5 +1,8 @@
 import random
 
+and_Choices = ("dogs", "birds", "fish")
+dogs_Choices = ("and", "birds")
+
 # Read in all the words in one go
 with open("input.txt") as f:
     words = f.read()

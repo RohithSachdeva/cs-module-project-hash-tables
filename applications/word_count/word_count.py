@@ -1,5 +1,18 @@
+#bad_chars = [", :, ;, ,, ., -, +, =, /, \, |, [ ] { } ( ) * ^ &]
+import string
+import re
+
 def word_count(s):
-    # Your code here
+    y = re.sub(r'[^a-zA-Z \'\n\t\r]', '', s).lower()
+    x = y.split()
+    wordCount = {}
+    for i in x: # O(n)
+        if i not in wordCount: #O(1)?  But its nested within another operation
+            wordCount[i] = 1
+        else:
+            wordCount[i] += 1
+    return wordCount
+    
 
 
 
